@@ -6,7 +6,7 @@ const Header=()=>{
   return(
     <header className="header">
       <Link to="/" className="links"><h1>Pic Some</h1></Link>      
-      <Link to="/cart" className="links"><i className="ri-shopping-cart-line ri-fw ri-2x"></i></Link>
+      <Link to="/cart" className="links"><i className="ri-shopping-cart-line ri-fw ri-3x"></i></Link>
     </header>
   )
 }
