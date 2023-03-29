@@ -1,4 +1,5 @@
 import { useContext,useState } from "react";
+import {Context} from "../Context"
 import ImageListItem from '@mui/material/ImageListItem';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
@@ -7,7 +8,11 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 const Images=({photo})=>{
 
   const [hovered,setHovered]=useState(false);
-   console.log(hovered)
+  const {toggleFavorite}=useContext(Context);
+
+  const heartIcon=hovered && <FavoriteBorderRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/>;
+  const addIcon=hovered && <AddCircleRoundedIcon className="add-icon" fontSize="large"/>
+ 
   return(
 
      <ImageListItem
@@ -21,9 +26,8 @@ const Images=({photo})=>{
               loading="lazy"
                           
             />
-            
-            {hovered && <FavoriteBorderRoundedIcon className="heart-icon" fontSize="large"/>}
-            {hovered && <AddCircleRoundedIcon className="add-icon" fontSize="large"/>}
+            {heartIcon}
+            {addIcon}
             
      </ImageListItem>
   )
