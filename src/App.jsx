@@ -3,7 +3,7 @@ import {Switch, Route} from "react-router-dom"
 import Header from './Components/Header'
 import Photos from "./Pages/Photos"
 import Cart from "./Pages/Cart"
-import Home from "./Components/Home"
+
 
 function App() {
   
