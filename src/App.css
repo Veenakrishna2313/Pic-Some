@@ -52,3 +52,24 @@ h1{
   padding:5rem;
 }
 
+.image-list{
+  position: relative;
+}
+
+.heart-icon{
+  position: absolute;
+  top:1rem;
+  left:1rem;
+  
+}
+
+.heart-icon:hover, .add-icon:hover{
+  cursor: pointer;
+  transform: scale(1.15);
+}
+
+.add-icon{
+  position: absolute;
+  top:1rem;
+  right:1rem;
+}

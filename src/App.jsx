@@ -10,15 +10,14 @@ function App() {
   return (
     <div className="App">
         <Header/>
-        <Switch>
-          <Route exact path="/">  
-              <Photos/>
-            </Route>
-          
-            <Route path="/cart">
-              <Cart/>
-            </Route>
-           </Switch>
+          <Switch>
+              <Route exact path="/">  
+                <Photos/>
+              </Route>            
+              <Route path="/cart">
+                <Cart/>
+              </Route>
+          </Switch>
     </div>
   )
 }
