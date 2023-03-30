@@ -10,8 +10,15 @@ const Images=({photo})=>{
   const [hovered,setHovered]=useState(false);
   const {toggleFavorite}=useContext(Context);
 
-  const heartIcon=hovered && <FavoriteBorderRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/>;
-  const addIcon=hovered && <AddCircleRoundedIcon className="add-icon" fontSize="large"/>
+  const heartIcon=()=>{
+    if(photo.isFavorite) {
+   return <FavoriteRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/> 
+    } else if(hovered){
+      return  <FavoriteBorderRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/>
+    }
+  }
+    
+    const addIcon=hovered && <AddCircleRoundedIcon className="add-icon" fontSize="large"/>
  
   return(
 
@@ -26,7 +33,8 @@ const Images=({photo})=>{
               loading="lazy"
                           
             />
-            {heartIcon}
+
+            {heartIcon()}
             {addIcon}
             
      </ImageListItem>
