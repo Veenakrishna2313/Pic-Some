@@ -4,13 +4,14 @@ import ImageListItem from '@mui/material/ImageListItem';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PropTypes from "prop-types"
 
 const Images=({photo})=>{
 
   const [hovered,setHovered]=useState(false);
-  const {toggleFavorite}=useContext(Context);
-
+  const {toggleFavorite,addToCart,cartItems,removeFromCart}=useContext(Context);
+  
   const heartIcon=()=>{
     if(photo.isFavorite) {
    return <FavoriteRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/> 
@@ -18,8 +19,16 @@ const Images=({photo})=>{
       return  <FavoriteBorderRoundedIcon onClick={()=>toggleFavorite(photo.id)} className="heart-icon" fontSize="large"/>
     }
   }
+
+  const addIcon=()=>{
+    if(cartItems.find(image=>image.id===photo.id)){
+      return <ShoppingCartIcon onClick={()=>removeFromCart(photo.id)} className="add-icon" fontSize="large"/>
+    } else if(hovered){
+     return <AddCircleRoundedIcon onClick={()=>addToCart(photo)} className="add-icon" fontSize="large"/>
+    }
+  }
     
-    const addIcon=hovered && <AddCircleRoundedIcon className="add-icon" fontSize="large"/>
+   
  
   return(
 
@@ -36,7 +45,7 @@ const Images=({photo})=>{
             />
 
             {heartIcon()}
-            {addIcon}
+            {addIcon()}
             
      </ImageListItem>
   )

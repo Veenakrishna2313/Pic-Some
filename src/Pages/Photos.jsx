@@ -5,9 +5,8 @@ import Images from "../Components/Images"
 
 const Photos=()=>{
 
-  const {allPhotos}=useContext(Context); 
-  console.log(allPhotos)
-
+  const {allPhotos}=useContext(Context);
+   
   const photos= allPhotos.map((photo) => (          
            <Images key={photo.id} photo={photo}/>            
         ))

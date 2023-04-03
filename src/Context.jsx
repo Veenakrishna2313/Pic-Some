@@ -7,13 +7,21 @@ const Context=createContext();
 const ContextProvider=({children})=>{
 
   const [allPhotos, setAllPhotos]=useState([]);
+  const [cartItems,setCartItems]=useState([]);
+  console.log("cartItems",cartItems)
  
+
+  const addToCart=(newItem)=>{
+     setCartItems(prevItem=>[...prevItem,newItem]);
+  }
+
+  const removeFromCart=(id)=>{
+    setCartItems(prevItems=>prevItems.filter(item=>item.id!==id))
+  }
 
   const toggleFavorite=(id)=>{
    const updatedArr=allPhotos.map(photo=>{
       if(photo.id===id){
-        console.log(id)
-        console.log(!photo.isFavorite)
         return {...photo,isFavorite:!photo.isFavorite}
       }
       return photo
@@ -30,7 +38,7 @@ const ContextProvider=({children})=>{
 
  
   return(
-  <Context.Provider value={{allPhotos:allPhotos, toggleFavorite:toggleFavorite}}>
+  <Context.Provider value={{allPhotos:allPhotos, toggleFavorite:toggleFavorite, cartItems:cartItems,addToCart:addToCart, removeFromCart:removeFromCart }}>
         {children}
     </Context.Provider>
   )
