@@ -4,6 +4,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import PropTypes from "prop-types"
 
 const Images=({photo})=>{
 
@@ -40,6 +41,15 @@ const Images=({photo})=>{
      </ImageListItem>
   )
    
+}
+
+Images.propTypes={
+  photo: PropTypes.shape({
+     id:PropTypes.string.isRequired,
+     url:PropTypes.string.isRequired,
+     isFavorite:PropTypes.bool
+  })
+ 
 }
 
 export default Images
