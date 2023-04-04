@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
         <Header/>
+        <div className='content-page'>
           <Switch>
               <Route exact path="/">  
                 <Photos/>
@@ -18,6 +19,7 @@ function App() {
                 <Cart/>
               </Route>
           </Switch>
+          </div>
     </div>
   )
 }

@@ -35,7 +35,12 @@ h1{
 }
 
 .header{
+  overflow: hidden;
+  z-index: 9;
   display:flex;
+  position: fixed;
+  width:100%;
+  top:0;
   justify-content: space-between;
   align-items: center;
   background-color: var(--orange);
@@ -43,12 +48,18 @@ h1{
   padding:0px 20px;
   -webkit-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
   -moz-box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
-  box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1)
+  box-shadow: 0px 2px 10px -5px rgba(21, 6, 5, 1);
+  
+}
+
+.content-page{
+  margin-top: 30px;
 }
 
 /**************Image container***********/
 
 .image-container{
+  
   padding:5rem;
 }
 
