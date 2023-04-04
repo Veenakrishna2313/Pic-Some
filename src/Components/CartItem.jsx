@@ -1,6 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useContext } from 'react';
 import { Context } from '../Context';
+import PropTypes from "prop-types";
 
 const CartItem=({item,cost})=>{
 
