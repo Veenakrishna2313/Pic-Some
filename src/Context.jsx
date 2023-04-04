@@ -8,6 +8,7 @@ const ContextProvider=({children})=>{
 
   const [allPhotos, setAllPhotos]=useState([]);
   const [cartItems,setCartItems]=useState([]);
+  const [ordered,setOrdered]=useState(false)
   console.log("cartItems",cartItems)
  
 
@@ -19,6 +20,16 @@ const ContextProvider=({children})=>{
     setCartItems(prevItems=>prevItems.filter(item=>item.id!==id))
   }
 
+  const ordering=()=>{
+    if(cartItems.length>0){
+    setOrdered(true);
+    setTimeout(()=>{
+      alert("Ordered");
+      setOrdered(false);
+      setCartItems([]);
+    },3000)
+  }
+  }
   const toggleFavorite=(id)=>{
    const updatedArr=allPhotos.map(photo=>{
       if(photo.id===id){
@@ -38,7 +49,7 @@ const ContextProvider=({children})=>{
 
  
   return(
-  <Context.Provider value={{allPhotos:allPhotos, toggleFavorite:toggleFavorite, cartItems:cartItems,addToCart:addToCart, removeFromCart:removeFromCart }}>
+  <Context.Provider value={{allPhotos:allPhotos, toggleFavorite:toggleFavorite, ordered:ordered,cartItems:cartItems,addToCart:addToCart,ordering:ordering,removeFromCart:removeFromCart }}>
         {children}
     </Context.Provider>
   )

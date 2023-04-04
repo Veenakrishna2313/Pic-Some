@@ -73,3 +73,53 @@ h1{
   top:1rem;
   right:1rem;
 }
+
+/******Cart*******/
+.cart-page{
+  text-align: center;
+}
+
+.cart-page h1{
+  font-size: 36px;
+}
+
+.cart-item{
+  display: flex;
+  align-items: center; 
+  margin: 20px 50px;
+
+}
+
+.cart-img{
+  margin-right: auto;
+  margin-left: 20px;
+  width:100px;
+}
+
+.cart-page .total-cost {
+  text-align: right;
+  font-size: 2rem;
+  margin: 10px 50px;
+  font-weight: 900;
+}
+
+.cart-page div.order-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+div.order-button>button {
+  border-color: var(--black);
+  cursor: pointer;
+  padding: 15px;
+  transition: all .2s ease-in-out;
+}
+
+div.order-button>button:focus {
+  outline: none;
+}
+
+div.order-button>button:disabled {
+  border-color: lightgray;
+}
